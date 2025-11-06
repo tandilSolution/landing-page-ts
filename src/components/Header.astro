@@ -1,0 +1,93 @@
+<!-- ===== Header / Navegación ===== -->
+<header
+    class="bg-opacity-80 backdrop-blur-md sticky top-0 z-50"
+    style="background-color: rgba(10, 10, 14, 0.8);"
+>
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#home" class="text-2xl font-bold text-white">
+            Tandil<span class="text-purple-400">Solution</span>
+        </a>
+
+        <!-- Links de Navegación (Desktop) -->
+        <div class="hidden md:flex space-x-8 items-center">
+            <a
+                href="#servicios-detallados"
+                class="text-slate-300 hover:text-purple-400 transition-colors duration-300"
+                >Nuestros Servicios</a
+            >
+            <a
+                href="#nosotros"
+                class="text-slate-300 hover:text-purple-400 transition-colors duration-300"
+                >Nosotros</a
+            >
+            <a
+                href="#contacto"
+                class="inline-block bg-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-purple-500 transition-all duration-300 shadow-lg shadow-purple-500/20"
+            >
+                Contacto
+            </a>
+        </div>
+
+        <!-- Botón de Menú (Mobile) -->
+        <button
+            id="menu-btn"
+            class="md:hidden text-white px-3 py-1 rounded border border-slate-500"
+            aria-label="Abrir menú"
+        >
+            Menú
+        </button>
+    </nav>
+
+    <!-- Menú Móvil -->
+    <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-slate-900"
+        style="background-color: #1F1F2A;"
+    >
+        <a
+            href="#servicios-detallados"
+            class="block px-6 py-3 text-white hover:bg-slate-800 transition-colors"
+            >Nuestros Servicios</a
+        >
+        <a
+            href="#nosotros"
+            class="block px-6 py-3 text-white hover:bg-slate-800 transition-colors"
+            >Nosotros</a
+        >
+        <a
+            href="#contacto"
+            class="block px-6 py-3 text-white bg-purple-600 hover:bg-purple-500 transition-colors"
+            >Contacto</a
+        >
+    </div>
+</header>
+
+<script>
+    // FIX: Envolvemos todo en window.onload para asegurarnos que 'lucide' esté definido
+    // antes de intentar usarlo.
+    window.onload = () => {
+        // Lógica del menú móvil
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn!.addEventListener("click", () => {
+            mobileMenu!.classList.toggle("hidden");
+
+            // Cambiar el texto del botón
+            if (mobileMenu!.classList.contains("hidden")) {
+                menuBtn!.textContent = "Menú";
+            } else {
+                menuBtn!.textContent = "Cerrar";
+            }
+        });
+
+        // Opcional: Cerrar menú al hacer clic en un enlace
+        mobileMenu!.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu!.classList.add("hidden");
+                menuBtn!.textContent = "Menú";
+            });
+        });
+    };
+</script>
