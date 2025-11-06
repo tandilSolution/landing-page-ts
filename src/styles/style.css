@@ -64,7 +64,10 @@ body {
 /* === NUEVO: Estilos para el carrusel de logos === */
 .logo-carousel {
     display: flex;
-    overflow-x: auto;
+
+    justify-content: center;
+    align-items: center;
+    /* overflow-x: auto; */
     /* Permite scroll horizontal */
     padding: 1.5rem 0.5rem;
     /* Espacio vertical y un poco a los lados */
@@ -72,9 +75,9 @@ body {
     /* Espacio entre logos (10 / 4) */
 
     /* Ocultar la barra de scroll (estético) */
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
     /* Firefox */
-    -ms-overflow-style: none;
+    /* -ms-overflow-style: none; */
     /* IE y Edge */
 }
 
@@ -84,20 +87,21 @@ body {
 }
 
 .logo-item {
-    flex: 0 0 auto;
+    flex: 0 0 auto;;
     /* Evita que los logos se encojan */
     text-align: center;
     transition: all 0.3s ease;
 }
 
 .logo-item img {
-    filter: grayscale(100%) opacity(0.6);
+    filter: grayscale(50%) opacity(0.6);
+    width: 200px;
     /* Logos en gris */
     transition: all 0.3s ease;
 }
 
 .logo-item:hover img {
-    filter: grayscale(0%) opacity(1);
+    filter: grayscale(0%) opacity(100);
     /* Color al hacer hover */
     transform: scale(1.05);
 }
